@@ -1,4 +1,4 @@
-import { userRouter } from "./routes/user.route";
+import userRouter from "./routes/user.route";
 
 const express = require("express");
 const mongoose = require("mongoose");

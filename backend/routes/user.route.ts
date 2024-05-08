@@ -54,4 +54,4 @@ userRouter.post("/register", async (req: Request, res: Response) => {
   }
 });
 
-exports = { userRouter };
+export default userRouter;

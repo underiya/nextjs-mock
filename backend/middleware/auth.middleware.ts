@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 const authenticate =
   (handler: any) => async (req: NextApiRequest, res: NextApiResponse) => {
