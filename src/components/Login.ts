@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import userModel from "@/models/user.model";
+import userModel from "../../backend/models/user.model";
 import { connection } from "@/lib/db";
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");

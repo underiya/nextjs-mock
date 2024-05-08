@@ -14,7 +14,7 @@ const cardData = [
     title: "Critically Severity",
     components: [
       { id: 1, name: "bug1" },
-      { id: 1, name: "bug2" },
+      { id: 2, name: "bug2" },
     ],
   },
   {
@@ -74,10 +74,8 @@ const Drag: React.FC = () => {
     const { index: destinationIndex, droppableId: destinationDroppableId } =
       destination;
 
-    // Verify source and destination indices
     if (sourceIndex === undefined || destinationIndex === undefined) return;
 
-    // Extract draggable ID from source droppableId
     const sourceId = sourceDroppableId.split("-")[1];
 
     // Find the dragged component
@@ -86,7 +84,6 @@ const Drag: React.FC = () => {
 
     if (!draggedComponent) return;
 
-    // Create a deep copy of the data state
     const newData = [...data];
 
     // Remove the dragged component from the source card
@@ -100,7 +97,6 @@ const Drag: React.FC = () => {
       .find((card) => card.id === +destinationId)
       ?.components.splice(destinationIndex, 0, draggedComponent);
 
-    // Update the state with the new data
     setData(newData);
   };
 
