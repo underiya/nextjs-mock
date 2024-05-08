@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import connect from "@/database/mongo.config";
 import userModel from "@/models/user.model";
+import { connection } from "@/lib/db";
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   const { email, password } = req.body;
 
-  await connect();
+  await connection();
 
   try {
     const user = await userModel.findOne({ email });

@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 const bcrypt = require("bcrypt");
 
-import connect from "@/database/mongo.config";
 import userModel from "@/models/user.model";
+import { connection } from "@/lib/db";
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   const { name, email, password } = req.body;
 
-  await connect();
+  await connection();
 
   try {
     const hashedPassword = await bcrypt.hash(password, 5);
